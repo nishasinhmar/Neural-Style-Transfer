@@ -10,3 +10,16 @@ Style Reconstructions. On top of the original CNN activations, we use a feature 
 Style transfer algorithm. First content and style features are extracted and stored. The style image a is passed through the network and its style representation AL on all layers included are computed and stored (left). The content image p is passed through the network and the content representation PL in one layer is stored (right). Then a random white noise image x is passed through the network and its style features GL and content features FL are computed. On each layer included in the style representation, the element-wise mean squared difference between GL and Al is computed to give the style loss L_style (left). Also, the mean squared difference between Fl and Pl is computed to give the content loss L_content (right).
 
 The total loss L_total is then a linear combination of the content and the style loss. Its derivative with respect to the pixel values can be computed using error back-propagation (middle). This gradient is used to iteratively update the image x until it simultaneously matches the style features of the style image a and the content features of the content image p (middle, bottom).
+
+Let's us make NMT more clear by the help on an example:
+
+![neural_style_transfer_example](https://user-images.githubusercontent.com/32998362/46880539-92d1a900-ce66-11e8-9377-b138dfe16025.jpeg)
+
+To do this, we all need to merge two images :
+a “content” image (C) and
+a “style” image (S),
+to create a “generated” image (G). The generated image G combines the “content” of the image C with the “style” of image S.
+
+In this example, we are going to generate an image of the Louvre museum in Paris (content image C), mixed with a painting by Claude Monet, a leader of the impressionist movement (style image S).
+
+<img width="338" alt="louvre_generated" src="https://user-images.githubusercontent.com/32998362/46880665-ee9c3200-ce66-11e8-8a99-d52f3a9b6040.png">
